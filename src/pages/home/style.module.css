@@ -1,0 +1,13 @@
+.home {
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.home > .header {
+  background-color: cadetblue;
+  height: 150px;
+  font-size: 4em;
+  line-height: 150px;
+  text-align: center;
+  font-weight: 300;
+}
