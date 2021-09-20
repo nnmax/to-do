@@ -1,11 +1,15 @@
 import React, { useRef } from 'react'
-import { useUUID, useTodoList } from '../../hooks'
-import { Todo } from '../../pages/home'
+import { useUUID, useTodoList, Todo } from '../../hooks'
 
-const TodoInput: React.FC = () => {
+interface TodoInputProps {
+  setTodo: ReturnType<typeof useTodoList>[0]
+}
+
+const TodoInput: React.FC<TodoInputProps> = (props) => {
+  const { setTodo } = props
+
   const inputRef = useRef<HTMLInputElement>(null)
   const [genUUID] = useUUID()
-  const [setTodo] = useTodoList()
 
   const onSubmit: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.key !== 'Enter') return
@@ -13,7 +17,6 @@ const TodoInput: React.FC = () => {
 
     const inputValue = inputRef.current.value.trim()
     if (inputValue === '') return
-
     const todo: Todo = {
       id: genUUID(),
       label: inputValue,

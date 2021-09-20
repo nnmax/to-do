@@ -48,7 +48,10 @@
     "import/no-named-as-default-member": "warn",
     "import/no-duplicates": "warn",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/ban-ts-comment": "off"
+    "@typescript-eslint/ban-ts-comment": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "@typescript-eslint/no-empty-interface": "off"
   },
   "overrides": [
     {

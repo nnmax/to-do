@@ -11,7 +11,7 @@ const UUID = () => {
       result += characters.charAt(Math.floor(Math.random() * charactersLength))
     }
     return result
-  }, [])
+  }, [charactersLength])
 
   return [genUUID] as const
 }
