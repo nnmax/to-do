@@ -1,5 +1,5 @@
 import { cloneDeep } from 'lodash'
-import { useCallback, useEffect } from 'react'
+import { useCallback } from 'react'
 import { useLocalStorage } from '..'
 
 export const TODO_LIST_KEY = 'TODO_LIST'

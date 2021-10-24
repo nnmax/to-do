@@ -4,7 +4,7 @@ import { useUUID, Todo } from '../../hooks'
 
 interface TodoInputProps {}
 
-const TodoInput: React.FC<TodoInputProps> = (props) => {
+const TodoInput: React.FC<TodoInputProps> = () => {
   const todoContextValue = useContext(TodoContext)
   if (!todoContextValue) {
     throw new Error('You must provide a value for TodoContext.Provider')

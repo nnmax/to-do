@@ -93,23 +93,6 @@ describe(useLocalStorage, () => {
     expect(state).toEqual('bar')
   })
 
-  /*
-  it('keeps multiple hooks accessing the same key in sync', () => {
-    localStorage.setItem('foo', 'bar');
-    const { result: r1, rerender: rerender1 } = renderHook(() => useLocalStorage('foo'));
-    const { result: r2, rerender: rerender2 } = renderHook(() => useLocalStorage('foo'));
-    const [, setFoo] = r1.current;
-    act(() => setFoo('potato'));
-    rerender1();
-    rerender2();
-    const [val1] = r1.current;
-    const [val2] = r2.current;
-    expect(val1).toEqual(val2);
-    expect(val1).toEqual('potato');
-    expect(val2).toEqual('potato');
-  });
-  */
-
   it('parses out objects from localStorage', () => {
     localStorage.setItem('foo', JSON.stringify({ ok: true }))
     const { result } = renderHook(() => useLocalStorage<{ ok: boolean }>('foo'))

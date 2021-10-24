@@ -5,7 +5,7 @@ import { TodoContext } from '../../App'
 
 interface TodoMenuProps {}
 
-const TodoMenu: React.FC<TodoMenuProps> = (props) => {
+const TodoMenu: React.FC<TodoMenuProps> = () => {
   const todoContextValue = useContext(TodoContext)
   if (!todoContextValue) {
     throw new Error('You must provide a value for TodoContext.Provider')
