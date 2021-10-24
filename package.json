@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@commitlint/prompt-cli": "^13.2.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^12.1.0",
     "@testing-library/user-event": "^13.2.1",
@@ -25,7 +26,8 @@
     "eslint": "eslint ./src --ext .ts,.tsx --cache",
     "eslint:fix": "yarn eslint --fix",
     "prepare": "husky install",
-    "prettier": "prettier --write src/**/*.{css,ts,tsx} package.json .prettierrc .eslintrc tsconfig.json README.md"
+    "prettier": "prettier --write src/**/*.{css,ts,tsx} package.json .prettierrc .eslintrc tsconfig.json README.md",
+    "cz": "git-cz"
   },
   "browserslist": {
     "production": [
@@ -46,6 +48,7 @@
     "@types/lodash": "^4.14.173",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
+    "commitizen": "^4.2.4",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-typescript": "^3.0.0",
@@ -67,5 +70,10 @@
   },
   "jest": {
     "resetMocks": false
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/prompt"
+    }
   }
 }
