@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "eslint": "eslint ./src --ext .ts,.tsx --cache",
+    "eslint": "eslint ./src --ext .ts,.tsx",
     "eslint:fix": "yarn eslint --fix",
     "prepare": "husky install",
     "prettier": "prettier --write src/**/*.{css,ts,tsx} package.json .prettierrc .eslintrc tsconfig.json README.md",
