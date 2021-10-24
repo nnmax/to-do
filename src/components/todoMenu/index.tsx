@@ -1,15 +1,16 @@
-import React, { useMemo } from 'react'
-import { useTodoList, Todo } from '../../hooks'
+import React, { useContext, useMemo } from 'react'
+import { Todo } from '../../hooks'
 import { debounce } from 'lodash'
+import { TodoContext } from '../../App'
 
-interface TodoMenuProps {
-  setTodo: ReturnType<typeof useTodoList>[0]
-  getTodo: ReturnType<typeof useTodoList>[1]
-}
+interface TodoMenuProps {}
 
 const TodoMenu: React.FC<TodoMenuProps> = (props) => {
-  const { setTodo, getTodo } = props
-
+  const todoContextValue = useContext(TodoContext)
+  if (!todoContextValue) {
+    throw new Error('You must provide a value for TodoContext.Provider')
+  }
+  const [setTodo, getTodo] = todoContextValue
   const todoList = useMemo(() => getTodo(), [getTodo])
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {

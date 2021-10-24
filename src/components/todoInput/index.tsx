@@ -1,13 +1,15 @@
-import React, { useRef } from 'react'
-import { useUUID, useTodoList, Todo } from '../../hooks'
+import React, { useContext, useRef } from 'react'
+import { TodoContext } from '../../App'
+import { useUUID, Todo } from '../../hooks'
 
-interface TodoInputProps {
-  setTodo: ReturnType<typeof useTodoList>[0]
-}
+interface TodoInputProps {}
 
 const TodoInput: React.FC<TodoInputProps> = (props) => {
-  const { setTodo } = props
-
+  const todoContextValue = useContext(TodoContext)
+  if (!todoContextValue) {
+    throw new Error('You must provide a value for TodoContext.Provider')
+  }
+  const [setTodo] = todoContextValue
   const inputRef = useRef<HTMLInputElement>(null)
   const [genUUID] = useUUID()
 
@@ -28,9 +30,7 @@ const TodoInput: React.FC<TodoInputProps> = (props) => {
   }
 
   return (
-    <div>
-      <input ref={inputRef} maxLength={50} onKeyPress={onSubmit} type="text" />
-    </div>
+    <input ref={inputRef} maxLength={50} onKeyPress={onSubmit} type="text" />
   )
 }
 
